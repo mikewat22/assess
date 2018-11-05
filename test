@@ -1,0 +1,20 @@
+import csv
+from censys.ipv4 import CensysIPv4
+
+
+UID = "<your-uid>"
+SECRET = "<your-secret>"
+
+ipv4 = CensysIPv4(api_id=UID, api_secret=SECRET)
+
+fields_IPv4 = [
+    "ip",
+    "location.city",
+    "location.country",
+    "location.country_code",
+    "location.postal_code",
+    "autonomous_system.name",
+    "autonomous_system.organization"
+]
+
+result = ipv4.search("bah.com or boozallen", fields=fields_IPv4)
